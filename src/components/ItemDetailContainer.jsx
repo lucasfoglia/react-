@@ -27,6 +27,4 @@ console.log(props)
       </div>
     );
   }
-
-  return <ItemDetail title={producto.title}/>;
-}
+<ItemDetail title={producto.title} description={producto.description} image={producto.image} price={producto.price} category={producto.category}/>;}

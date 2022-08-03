@@ -8,7 +8,7 @@ export default function ItemList(props) {
   return (
     <>
       {productId && (
-        <div class="modal fade">
+        <div class="modal d-block">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
