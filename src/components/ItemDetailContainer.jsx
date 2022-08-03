@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
 
 export default function ItemDetailContainer(props) {
   const [producto, setProducto] = useState();
-console.log(props)
+  console.log(props);
   function fetchProducto(id) {
     setTimeout(async () => {
       const respose = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -27,4 +27,11 @@ console.log(props)
       </div>
     );
   }
-<ItemDetail title={producto.title} description={producto.description} image={producto.image} price={producto.price} category={producto.category}/>;}
+ return <ItemDetail
+    title={producto.title}
+    description={producto.description}
+    image={producto.image}
+    price={producto.price}
+    category={producto.category}
+  />;
+}
