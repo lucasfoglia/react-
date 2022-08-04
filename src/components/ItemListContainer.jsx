@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 
 export default function ItemListContainer() {
   const [productos, setProductos] = useState();
+  const { category } = useParams()
 
   function fetchProductos() {
     setTimeout(async () => {
-      const respose = await fetch("https://fakestoreapi.com/products");
-      const stockProductos = await respose.json();
+      const response = !category ? await fetch("https://fakestoreapi.com/products") :  await fetch(`'https://fakestoreapi.com/products/category/${category}'`);
+      const stockProductos = await response.json();
       setProductos(stockProductos);
     }, 2000);
   }

@@ -3,7 +3,7 @@ import ItemDetail from "./ItemDetail";
 
 export default function ItemDetailContainer(props) {
   const [producto, setProducto] = useState();
-  console.log(props);
+
   function fetchProducto(id) {
     setTimeout(async () => {
       const respose = await fetch(`https://fakestoreapi.com/products/${id}`);

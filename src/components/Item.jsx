@@ -6,7 +6,6 @@ export default function Item(props) {
     <div
       role="button"
       class="card m-2"
-      style={{ width: "30%" }}
       onClick={() => props.onClick(props.id)}
     >
       <img src={props.img} class="card-img-top" alt="..." />
