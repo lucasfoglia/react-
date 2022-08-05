@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 export default function NavBar() {
+  const category = `jewelery`;
   return (
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
@@ -28,7 +29,7 @@ export default function NavBar() {
               </Link>
             </li>
             <li class="nav-item">
-              <Link class="nav-link active" to={`/category/jewelery`}>
+              <Link class="nav-link active" to={`/category/${category}`}>
                 Jewelery
               </Link>
             </li>
