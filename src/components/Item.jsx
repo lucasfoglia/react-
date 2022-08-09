@@ -1,5 +1,4 @@
 import React from "react";
-import ItemCount from "./ItemCount";
 
 export default function Item(props) {
   return (
@@ -11,7 +10,6 @@ export default function Item(props) {
       <div class="card-body">
         <h5 class="card-title">{props.nombre}</h5>
         <p class="card-text">{props.precio}</p>
-        <ItemCount />
       </div>
     </div>
   );

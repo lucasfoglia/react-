@@ -1,17 +1,15 @@
-import { Fragment, useState } from "react";
 
 const STOCK = 5;
 
-export default function ItemCount() {
-  const [numero, setNumero] = useState(0);
+export default function ItemCount(props) {
 
   const setStock = (parametro) => {
-    if (numero < STOCK && parametro > 0)   {
-      setNumero(numero + parametro);
+    if (props.numero < STOCK && parametro > 0)   {
+      props.onAdd(props.numero + parametro);
     }
 
-    if (numero > 0 && parametro < 0)   {
-        setNumero(numero + parametro);
+    if (props.numero > 0 && parametro < 0)   {
+      props.onAdd(props.numero + parametro);
       }
 
   };
@@ -20,7 +18,7 @@ export default function ItemCount() {
   return (
     <div>
       <button class="btn btn-secondary m-4" onClick={() => setStock(-1)}>-</button>
-      {numero}
+      {props.numero}
       <button class="btn btn-secondary m-4" onClick={() => setStock(1)}>+</button>
     </div>
   );
