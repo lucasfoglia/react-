@@ -27,11 +27,14 @@ export default function ItemDetailContainer(props) {
       </div>
     );
   }
- return <ItemDetail
-    title={producto.title}
-    description={producto.description}
-    image={producto.image}
-    price={producto.price}
-    category={producto.category}
-  />;
+  return (
+    <ItemDetail
+      id={producto.id}
+      title={producto.title}
+      description={producto.description}
+      image={producto.image}
+      price={producto.price}
+      category={producto.category}
+    />
+  );
 }
