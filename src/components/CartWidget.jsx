@@ -1,8 +1,6 @@
-import React, { useContext, useMemo } from "react";
-import { CartContext } from "../CartContext";
+import React, { useMemo } from "react";
 
 export default function CartWidget(props) {
-  console.log(props)
   const cantidadTotal = useMemo(() => {
     return props.cart.reduce(
       (previousValue, currentValue) => previousValue + currentValue.quantity,
@@ -11,9 +9,9 @@ export default function CartWidget(props) {
   }, [props.cart]);
 
   return (
-    <div>
-      <i class="bi bi-cart" style={{ color: "black" }} />
-      <p>{cantidadTotal}</p>
+    <div className="d-flex flex-row">
+      <i className="bi bi-cart" style={{ color: "black" }} />
+      <p className="ms-2">{cantidadTotal}</p>
     </div>
   );
 }

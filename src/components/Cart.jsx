@@ -7,17 +7,14 @@ import { useMemo } from "react";
 export default function Cart() {
   const { cart, clear, removeItem } = useContext(CartContext);
 
-const precioTotal = useMemo(()=>{
-  return cart.reduce(
-    (previousValue, currentValue) => previousValue + (currentValue.quantity*currentValue.price),
-    0
-  );
-},[cart])
+  const precioTotal = useMemo(() => {
+    return cart.reduce(
+      (previousValue, currentValue) => previousValue + (currentValue.quantity * currentValue.price),
+      0
+    );
+  }, [cart])
 
-
-
-
-  if(cart.length === 0) {
+  if (cart.length === 0) {
     return (<div>
       <p>No hay items en el carrito.</p>
       <Link to="/">Ir al inicio</Link>
@@ -35,7 +32,7 @@ const precioTotal = useMemo(()=>{
         {
           cart.map((item) => {
             return (
-              <div className="d-flex flex-row justify-content-between text-start" key={item.id}>
+              <div className="d-flex flex-row justify-content-between text-start mb-2" key={item.id}>
                 <p className="w-25">{item.name}</p>
                 <p className="w-25 ps-4">{item.quantity}</p>
                 <p className="w-25 ps-4">{item.price}</p>
@@ -46,7 +43,7 @@ const precioTotal = useMemo(()=>{
           })
         }
       </>
-      <p>Precio Total: {precioTotal} 
+      <p>Precio Total: {precioTotal}
       </p>
       <button className="btn btn-danger m-4" onClick={() => clear()}>Remove all items</button>
     </div>
