@@ -1,9 +1,13 @@
 /* This example requires Tailwind CSS v2.0+ */
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../CartContext";
 import CartWidget from "./CartWidget";
 
 export default function NavBar() {
+  const { cart } = useContext(CartContext);
   const category = `jewelery`;
+console.log(cart)
   return (
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
@@ -34,7 +38,9 @@ export default function NavBar() {
               </Link>
             </li>
           </ul>
-          <CartWidget />
+            <Link to={"/cart"}>
+              <CartWidget cart={cart} />
+            </Link>
         </div>
       </div>
     </nav>
