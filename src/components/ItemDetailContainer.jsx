@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { doc, getDoc } from "firebase/firestore";
+import React, { useEffect, useState } from "react";
+import { db } from "../main";
 import ItemDetail from "./ItemDetail";
 
 export default function ItemDetailContainer(props) {
@@ -6,9 +8,15 @@ export default function ItemDetailContainer(props) {
 
   function fetchProducto(id) {
     setTimeout(async () => {
-      const respose = await fetch(`https://fakestoreapi.com/products/${id}`);
-      const stockProductos = await respose.json();
-      setProducto(stockProductos);
+      const docRef = doc(db, "productos", id);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const { title, description, image, price, category } = docSnap.data();
+        setProducto({ title, description, image, price, category });
+      } else {
+        console.log("No such document!");
+      }
     }, 2000);
   }
 
