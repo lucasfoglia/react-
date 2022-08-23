@@ -7,12 +7,14 @@ import CartWidget from "./CartWidget";
 export default function NavBar() {
   const { cart } = useContext(CartContext);
   const category = `jewelery`;
-console.log(cart)
+  const categoryMen = "men's clothing";
+  const electronics = "electronics";
+  const categoryWomen = "women's clothing";
   return (
     <nav class="navbar navbar-expand-lg bg-light">
       <div class="container-fluid">
         <Link class="navbar-brand" to="/">
-          Store
+          Importados Store
         </Link>
         <button
           class="navbar-toggler"
@@ -34,13 +36,28 @@ console.log(cart)
             </li>
             <li class="nav-item">
               <Link class="nav-link active" to={`/category/${category}`}>
-                Jewelery
+                Joyas
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link active" to={`/category/${categoryMen}`}>
+                Ropa de Hombre
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link active" to={`/category/${electronics}`}>
+                Electronica
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link active" to={`/category/${categoryWomen}`}>
+                Ropa de Mujer
               </Link>
             </li>
           </ul>
-            <Link to={"/cart"}>
-              <CartWidget cart={cart} />
-            </Link>
+          <Link to={"/cart"}>
+            <CartWidget cart={cart} />
+          </Link>
         </div>
       </div>
     </nav>

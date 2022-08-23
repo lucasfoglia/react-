@@ -13,7 +13,7 @@ export default function ItemDetailContainer(props) {
 
       if (docSnap.exists()) {
         const { title, description, image, price, category } = docSnap.data();
-        setProducto({ title, description, image, price, category });
+        setProducto({ id, title, description, image, price, category });
       } else {
         console.log("No such document!");
       }
@@ -28,7 +28,7 @@ export default function ItemDetailContainer(props) {
 
   if (!producto) {
     return (
-      <div class="d-flex justify-content-center">
+      <div style={{ height: "90%" }} class="d-flex justify-content-center">
         <div class="spinner-border" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
