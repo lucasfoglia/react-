@@ -18,8 +18,9 @@ npm run dev
 
 ## Librerías Utilizadas
 
-React 18
-Firebase
-Bootstrap
-React Toastify
-React Router Dom
+
+* React 18
+* Firebase
+* Bootstrap
+* React Toastify
+* React Router Dom
